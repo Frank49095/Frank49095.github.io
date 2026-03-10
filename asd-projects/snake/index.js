@@ -157,10 +157,10 @@ for ( var i = snake.body.length - 1; i >= 1; i-- ) {
     snake.head.column = snake.head.column + 1;
   }
   else if (snake.head.direction === "up") {
-  snake.head.column = snake.head.column - 1;
+  snake.head.row = snake.head.row - 1;
   }
   else if (snake.head.direction === "down") {
-  snake.head.column = snake.head.column + 1;
+  snake.head.row = snake.head.row + 1;
   }
   repositionSquare(snake.head);
 }
