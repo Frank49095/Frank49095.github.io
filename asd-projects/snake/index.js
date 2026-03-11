@@ -20,7 +20,7 @@ var apple = {};
 // TODO 5, Part 1: Create the snake variable
 // initialize a new snakeSquare Object
 
-const snake = {};
+var snake = {};
 
 
 // Constant Variables
@@ -204,8 +204,8 @@ function hasCollidedWithApple() {
     HINT: Both the apple and the snake's head are aware of their own row and column
   */
 //for (var i = 1; i < snake.body.length; i++){
-/*  var peice = snake.body[i];
-  if (peice.column === snake.head.column && peice.row === snake.head.row){
+/*  var piece = snake.body[i];
+  if (piece.column === snake.head.column && piece.row === snake.head.row){
     return true
   }
 
@@ -217,7 +217,6 @@ function hasCollidedWithApple() {
   }
   return false;
 }
-
 
 function handleAppleCollision() {
   // increase the score and update the score DOM element
@@ -237,7 +236,7 @@ function handleAppleCollision() {
 }
 if (snake.tail.direction === "right"){
   row = snake.tail.row;
-  colum = snake.tail.column - 1;
+  column = snake.tail.column - 1;
 }
 if (snake.tail.direction === "up"){
   row = snake.tail.row + 1;
@@ -262,11 +261,12 @@ function hasCollidedWithSnake() {
     //return true;
  // }
 for (var i = 0; i < snake.body.length; i++){
-  var peice =snake.body[i];
-if(peice.column === randomPosition.column && peice.row === randomPosition.row){ 
+  var piece = snake.body[i];
+if(piece.column === randomPosition.column && piece.row === randomPosition.row){ 
   return true;
+  }
 }
-}
+
 
   return false;
 }
@@ -416,9 +416,16 @@ while (!spaceIsAvailable) {
 return randomPosition;
 
 
-  }
 
-  return randomPosition;
+  }
+for (var i = 0; i < snake.body.length; i++) {
+  var piece = snake.body[i];
+  if (randomPosition.row === piece.row){
+    spaceIsAvailable = false;
+  }
+}
+
+  //return randomPosition;
 }
 
 function calculateHighScore() {
